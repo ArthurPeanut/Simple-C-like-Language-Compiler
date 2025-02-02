@@ -1,9 +1,11 @@
 # Simple Compiler
 
 ## Overview
+
 This project implements a **simple compiler** that processes C-like language source code and generates **x86 assembly code**. The compiler is developed using **Flex (Lexical Analysis)** and **Bison (Syntax Analysis)**, with a backend generating **assembly code** and supporting execution through **NASM**.
 
 ## Features
+
 - **Lexical Analysis**: Uses **Flex** to tokenize source code (keywords, operators, identifiers, etc.).
 - **Syntax Analysis**: Implements **Bison-based parsing** for parsing grammar rules.
 - **Intermediate Code Generation**: Converts parsed structures into stack-based **intermediate representations**.
@@ -12,6 +14,7 @@ This project implements a **simple compiler** that processes C-like language sou
 - **Custom I/O Handling**: Implements low-level **I/O functions** for interacting with the generated program.
 
 ## File Structure
+
 ```
 |-- input_file/        # Folder containing input C-like source files
 |   |-- test.c         # Example input file
@@ -33,35 +36,48 @@ This project implements a **simple compiler** that processes C-like language sou
 ```
 
 ## Installation & Usage
+
 ### Prerequisites
+
 Ensure you have the following installed on your system:
+
 - **Flex** (for lexical analysis)
 - **Bison** (for syntax analysis)
 - **GCC** (for compiling the front-end)
 - **NASM** (for assembling the final code)
 
 ### Compilation Steps
+
 1. **Lexical & Syntax Analysis**
+
 ```bash
 flex src/lex_anal.l
 bison -vdty src/syn_anal.y
 gcc -o src/front_end src/lex.yy.c src/y.tab.c
 ```
+
 2. **Intermediate Code Simulation** (Optional Debugging Step)
+
 ```bash
 ./src/front_end input_file/test.c
 ```
+
 3. **Assembly Code Generation & Linking**
+
 ```bash
 ./src/my_gcc input_file/test.c
 ```
+
 4. **Execution**
+
 ```bash
 ./output_file/test
 ```
 
 ## Example
+
 ### Input (Source Code)
+
 ```c
 int main() {
     int a = 5;
@@ -71,7 +87,9 @@ int main() {
     return 0;
 }
 ```
+
 ### Generated Assembly (Excerpt)
+
 ```assembly
 push 5
 pop a
@@ -86,7 +104,9 @@ call print
 ```
 
 ## Contributors
+
 - **Haoqing Liu**
 
 ## License
+
 This project is licensed under the MIT License.
